@@ -1,4 +1,4 @@
-#include "SysExecGui.h"
+ #include "SysExecGui.h"
 
 #include <CtrlLib/CtrlLib.h>
 
@@ -44,7 +44,7 @@ PasswordDlg::PasswordDlg()
 	CtrlLayout(*this, GetExeTitle());
 	pwd.Password();
 	lock.SetImage(SysExecGuiImg::lock());
-	title1 <<= t_("Please enter password to execute administrative tasks");
+	title1 <<= t_("Пожалуйста, ввкедите пароль для выполнения административных задач");
 	title2 <<= Format(t_("[1 '%s' application can change important parts of your system]"), GetExeTitle());
 	okBtn.Ok() <<= Acceptor(IDOK);
 	cancelBtn.Cancel() <<= Rejector(IDCANCEL);
@@ -66,7 +66,7 @@ bool PasswordDlg::Run(String const &u)
 				// check the password running pwd
 				if(SysExecUser(user, ~pwd, "/bin/pwd", ""))
 					return true;
-				PromptOK(DeQtf(t_("Wrong password -- Try again")));
+				PromptOK(DeQtf(t_("Неправильный пароль -- Попробуйте кщё раз")));
 				break;
 			case IDCANCEL:
 				return false;
